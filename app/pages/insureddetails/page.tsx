@@ -12,6 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Calendar } from "@/components/ui/calendar";
 import { format, addDays, addYears } from "date-fns";
 import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover"; // Importing Popover
+import { useRouter } from "next/navigation"; // For navigation
 
 const InsuredDetailsForm = () => {
   const [policyStartDate, setPolicyStartDate] = useState(addDays(new Date(), 1));
@@ -20,10 +21,16 @@ const InsuredDetailsForm = () => {
   );
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
 
+  const router = useRouter(); // Initialize the Next.js router
+
   const handlePolicyStartChange = (date: Date) => {
     setPolicyStartDate(date);
     setPolicyEndDate(addYears(date, 1));
     setIsPopoverOpen(false); // Close the calendar popover after selecting the date
+  };
+
+  const handleNextClick = () => {
+    router.push("/pages/liability"); // Navigate to the liability page
   };
 
   return (
@@ -172,6 +179,32 @@ const InsuredDetailsForm = () => {
           <label className="font-medium">Basis of Wages</label>
           <Input placeholder="Enter basis of wages" />
         </div>
+      </div>
+
+      {/* Next Button */}
+      <div className="mt-6 flex justify-end">
+        <button
+          onClick={handleNextClick}
+          className="flex items-center px-6 py-2 bg-black text-white rounded-full hover:bg-gray-800"
+        >
+          Next
+          <span className="ml-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              className="w-5 h-5"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M5 12h14M12 5l7 7-7 7"
+              />
+            </svg>
+          </span>
+        </button>
       </div>
     </div>
   );
