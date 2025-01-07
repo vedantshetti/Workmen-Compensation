@@ -11,11 +11,17 @@ import {
 import { Input } from "@/components/ui/input";
 import { Calendar } from "@/components/ui/calendar";
 import { format, addDays, addYears } from "date-fns";
-import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover"; // Importing Popover
+import {
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+} from "@/components/ui/popover"; // Importing Popover
 import { useRouter } from "next/navigation"; // For navigation
 
 const InsuredDetailsForm = () => {
-  const [policyStartDate, setPolicyStartDate] = useState(addDays(new Date(), 1));
+  const [policyStartDate, setPolicyStartDate] = useState(
+    addDays(new Date(), 1)
+  );
   const [policyEndDate, setPolicyEndDate] = useState(
     addYears(addDays(new Date(), 1), 1)
   );
@@ -42,14 +48,18 @@ const InsuredDetailsForm = () => {
         {/* Insured Name */}
         <div className="flex flex-col gap-y-2">
           <label className="font-medium">Insured Name</label>
-          <Input placeholder="Enter insured name" />
+          <Input
+            className="placeholder-gray-500"
+            placeholder="Enter insured name"
+          />
         </div>
 
+        {/* Emirates */}
         {/* Emirates */}
         <div className="flex flex-col gap-y-2">
           <label className="font-medium">Emirates</label>
           <Select>
-            <SelectTrigger className="w-full">
+            <SelectTrigger className="w-full text-gray-500">
               <SelectValue placeholder="Select emirates" />
             </SelectTrigger>
             <SelectContent>
@@ -69,7 +79,7 @@ const InsuredDetailsForm = () => {
         <div className="flex flex-col gap-y-2">
           <label className="font-medium">Country</label>
           <Select>
-            <SelectTrigger className="w-full">
+            <SelectTrigger className="w-full text-gray-500">
               <SelectValue placeholder="Select country" />
             </SelectTrigger>
             <SelectContent>
@@ -90,19 +100,37 @@ const InsuredDetailsForm = () => {
         <div className="flex flex-col gap-y-2">
           <label className="font-medium">Business Sector</label>
           <Select>
-            <SelectTrigger className="w-full">
+            <SelectTrigger className="w-full text-gray-500">
               <SelectValue placeholder="Select business sector" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="airport-airline">Airport/Airline Ground Staff</SelectItem>
-              <SelectItem value="computer-software">Computer/Software developers or administrators</SelectItem>
-              <SelectItem value="education">Educational Institution - Schools / College / Universities</SelectItem>
-              <SelectItem value="finance-insurance">Finance and Insurance</SelectItem>
-              <SelectItem value="healthcare-social">Healthcare and Social Work Activities</SelectItem>
-              <SelectItem value="media">Information and Communication - Newspaper, TV, Media etc</SelectItem>
-              <SelectItem value="real-estate">Real Estate Administrators/agents</SelectItem>
-              <SelectItem value="arts-entertainment">Arts, Entertainment and Recreation</SelectItem>
-              <SelectItem value="construction">General Contracting and Civil Construction</SelectItem>
+              <SelectItem value="airport-airline">
+                Airport/Airline Ground Staff
+              </SelectItem>
+              <SelectItem value="computer-software">
+                Computer/Software developers or administrators
+              </SelectItem>
+              <SelectItem value="education">
+                Educational Institution - Schools / College / Universities
+              </SelectItem>
+              <SelectItem value="finance-insurance">
+                Finance and Insurance
+              </SelectItem>
+              <SelectItem value="healthcare-social">
+                Healthcare and Social Work Activities
+              </SelectItem>
+              <SelectItem value="media">
+                Information and Communication - Newspaper, TV, Media etc
+              </SelectItem>
+              <SelectItem value="real-estate">
+                Real Estate Administrators/agents
+              </SelectItem>
+              <SelectItem value="arts-entertainment">
+                Arts, Entertainment and Recreation
+              </SelectItem>
+              <SelectItem value="construction">
+                General Contracting and Civil Construction
+              </SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -110,14 +138,17 @@ const InsuredDetailsForm = () => {
         {/* Business Activity */}
         <div className="flex flex-col gap-y-2">
           <label className="font-medium">Business Activity</label>
-          <Input placeholder="Enter business activity" />
+          <Input
+            className="placeholder-gray-500"
+            placeholder="Enter business activity"
+          />
         </div>
 
         {/* Law/Jurisdiction */}
         <div className="flex flex-col gap-y-2">
           <label className="font-medium">Law/Jurisdiction</label>
           <Select>
-            <SelectTrigger className="w-full">
+            <SelectTrigger className="w-full text-gray-500">
               <SelectValue placeholder="Select jurisdiction" />
             </SelectTrigger>
             <SelectContent>
@@ -133,7 +164,10 @@ const InsuredDetailsForm = () => {
         {/* Trade License Number */}
         <div className="flex flex-col gap-y-2">
           <label className="font-medium">Trade License Number</label>
-          <Input placeholder="Enter trade license number" />
+          <Input
+            className="placeholder-gray-500"
+            placeholder="Enter trade license number"
+          />
         </div>
 
         {/* Policy Dates */}
@@ -142,8 +176,11 @@ const InsuredDetailsForm = () => {
           <Popover open={isPopoverOpen} onOpenChange={setIsPopoverOpen}>
             <PopoverTrigger asChild>
               <Input
+                className="placeholder-gray-500"
                 placeholder="Select policy start date"
-                value={policyStartDate ? format(policyStartDate, "yyyy-MM-dd") : ""}
+                value={
+                  policyStartDate ? format(policyStartDate, "yyyy-MM-dd") : ""
+                }
                 onClick={() => setIsPopoverOpen(true)} // Open Popover when clicked
                 readOnly
               />
@@ -162,6 +199,7 @@ const InsuredDetailsForm = () => {
         <div className="flex flex-col gap-y-2">
           <label className="font-medium">Policy To</label>
           <Input
+            className="placeholder-gray-500"
             value={format(policyEndDate, "yyyy-MM-dd")}
             readOnly
             className="text-gray-500"
@@ -171,13 +209,20 @@ const InsuredDetailsForm = () => {
         {/* Number of Employees */}
         <div className="flex flex-col gap-y-2">
           <label className="font-medium">Number of Employees</label>
-          <Input type="number" placeholder="Enter number of employees" />
+          <Input
+            className="placeholder-gray-500"
+            type="number"
+            placeholder="Enter number of employees"
+          />
         </div>
 
         {/* Basis of Wages */}
         <div className="flex flex-col gap-y-2">
           <label className="font-medium">Basis of Wages</label>
-          <Input placeholder="Enter basis of wages" />
+          <Input
+            className="placeholder-gray-500"
+            placeholder="Enter basis of wages"
+          />
         </div>
       </div>
 
