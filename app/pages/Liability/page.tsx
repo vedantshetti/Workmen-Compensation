@@ -194,7 +194,7 @@ const LimitOfLiabilityForm = () => {
           </div>
 
           {/* Add/Del Button */}
-          <div className="flex items-center mt-4">
+          <div className="lg:col-span-3 lg:flex lg:items-center lg:justify-end mt-4">
             <button className="px-4 py-2 bg-blue-500 text-white rounded-md">
               Add/Del
             </button>
