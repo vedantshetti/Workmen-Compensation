@@ -176,10 +176,10 @@ const InsuredDetailsForm = () => {
           <Popover open={isPopoverOpen} onOpenChange={setIsPopoverOpen}>
             <PopoverTrigger asChild>
               <Input
-                className="placeholder-gray-500"
+                className="placeholder-gray-500 text-gray-500"
                 placeholder="Select policy start date"
                 value={
-                  policyStartDate ? format(policyStartDate, "yyyy-MM-dd") : ""
+                  policyStartDate ? format(policyStartDate, "dd-MM-yyyy") : ""
                 }
                 onClick={() => setIsPopoverOpen(true)} // Open Popover when clicked
                 readOnly
