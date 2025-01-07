@@ -41,7 +41,42 @@ const InsuredDetailsForm = () => {
         {/* Emirates */}
         <div className="flex flex-col gap-y-2">
           <label className="font-medium">Emirates</label>
-          <Input placeholder="Enter emirates" />
+          <Select>
+            <SelectTrigger className="w-full">
+              <SelectValue placeholder="Select emirates" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="abu-dhabi">Abu Dhabi</SelectItem>
+              <SelectItem value="ajman">Ajman</SelectItem>
+              <SelectItem value="dubai">Dubai</SelectItem>
+              <SelectItem value="fujairah">Fujairah</SelectItem>
+              <SelectItem value="other">Other</SelectItem>
+              <SelectItem value="ras-al-khaimah">Ras Al Khaimah</SelectItem>
+              <SelectItem value="sharjah">Sharjah</SelectItem>
+              <SelectItem value="um-al-quwain">Um Al Quwain</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+
+        {/* Country */}
+        <div className="flex flex-col gap-y-2">
+          <label className="font-medium">Country</label>
+          <Select>
+            <SelectTrigger className="w-full">
+              <SelectValue placeholder="Select country" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="uae">UAE</SelectItem>
+              <SelectItem value="india">India</SelectItem>
+              <SelectItem value="usa">USA</SelectItem>
+              <SelectItem value="uk">United Kingdom</SelectItem>
+              <SelectItem value="germany">Germany</SelectItem>
+              <SelectItem value="australia">Australia</SelectItem>
+              <SelectItem value="canada">Canada</SelectItem>
+              <SelectItem value="france">France</SelectItem>
+              <SelectItem value="italy">Italy</SelectItem>
+            </SelectContent>
+          </Select>
         </div>
 
         {/* Business Sector */}
@@ -52,11 +87,15 @@ const InsuredDetailsForm = () => {
               <SelectValue placeholder="Select business sector" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="technology">Technology</SelectItem>
-              <SelectItem value="healthcare">Healthcare</SelectItem>
-              <SelectItem value="construction">Construction</SelectItem>
-              <SelectItem value="education">Education</SelectItem>
-              <SelectItem value="finance">Finance</SelectItem>
+              <SelectItem value="airport-airline">Airport/Airline Ground Staff</SelectItem>
+              <SelectItem value="computer-software">Computer/Software developers or administrators</SelectItem>
+              <SelectItem value="education">Educational Institution - Schools / College / Universities</SelectItem>
+              <SelectItem value="finance-insurance">Finance and Insurance</SelectItem>
+              <SelectItem value="healthcare-social">Healthcare and Social Work Activities</SelectItem>
+              <SelectItem value="media">Information and Communication - Newspaper, TV, Media etc</SelectItem>
+              <SelectItem value="real-estate">Real Estate Administrators/agents</SelectItem>
+              <SelectItem value="arts-entertainment">Arts, Entertainment and Recreation</SelectItem>
+              <SelectItem value="construction">General Contracting and Civil Construction</SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -97,7 +136,7 @@ const InsuredDetailsForm = () => {
             <PopoverTrigger asChild>
               <Input
                 placeholder="Select policy start date"
-                value={format(policyStartDate, "yyyy-MM-dd")}
+                value={policyStartDate ? format(policyStartDate, "yyyy-MM-dd") : ""}
                 onClick={() => setIsPopoverOpen(true)} // Open Popover when clicked
                 readOnly
               />
