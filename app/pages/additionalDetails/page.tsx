@@ -1,16 +1,16 @@
 "use client";
 
 import React, { useState } from "react";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"; // Assuming you have RadioGroup components
 import { Input } from "@/components/ui/input";
-import { Switch } from "@/components/ui/switch"; // Assuming a Switch component for toggles
 import { useRouter } from "next/navigation";
 
 const AdditionalDetailsForm = () => {
-  const [coverForAllEmployees, setCoverForAllEmployees] = useState(false);
-  const [offshoreActivities, setOffshoreActivities] = useState(false);
-  const [oilGasSector, setOilGasSector] = useState(false);
-  const [claimsInPast, setClaimsInPast] = useState(false);
-  const [previousApplicationDeclined, setPreviousApplicationDeclined] = useState(false);
+  const [coverForAllEmployees, setCoverForAllEmployees] = useState("yes");
+  const [offshoreActivities, setOffshoreActivities] = useState("no");
+  const [oilGasSector, setOilGasSector] = useState("no");
+  const [claimsInPast, setClaimsInPast] = useState("no");
+  const [previousApplicationDeclined, setPreviousApplicationDeclined] = useState("no");
 
   const [offshoreDetails, setOffshoreDetails] = useState("");
   const [oilGasDetails, setOilGasDetails] = useState("");
@@ -30,86 +30,151 @@ const AdditionalDetailsForm = () => {
       {/* Cover obtained for all Employees */}
       <div className="flex flex-col gap-y-2">
         <label className="font-medium">Is the Cover obtained for all Employees?</label>
-        <div className="flex items-center gap-x-4">
-          <Switch checked={coverForAllEmployees} onCheckedChange={setCoverForAllEmployees} />
-          {coverForAllEmployees && (
-            <Input
-              type="text"
-              placeholder="If no, give details"
-              value={offshoreDetails}
-              onChange={(e) => setOffshoreDetails(e.target.value)}
-              className="w-full"
+        <RadioGroup value={coverForAllEmployees} onValueChange={setCoverForAllEmployees}>
+          <div className="flex items-center gap-x-4">
+            <RadioGroupItem
+              value="yes"
+              id="coverYes"
+              label="Yes"
+              className={`radio-custom-size ${coverForAllEmployees === "yes" ? "bg-gray-800 text-white" : ""}`}
             />
-          )}
-        </div>
+            <RadioGroupItem
+              value="no"
+              id="coverNo"
+              label="No"
+              className={`radio-custom-size ${coverForAllEmployees === "no" ? "bg-gray-800 text-white" : ""}`}
+            />
+          </div>
+        </RadioGroup>
+        {coverForAllEmployees === "no" && (
+          <Input
+            type="text"
+            placeholder="If no, give details"
+            value={offshoreDetails}
+            onChange={(e) => setOffshoreDetails(e.target.value)}
+            className="w-full"
+          />
+        )}
       </div>
 
       {/* Offshore Activities */}
       <div className="flex flex-col gap-y-2">
         <label className="font-medium">Is any of the employees engaged in offshore activities?</label>
-        <div className="flex items-center gap-x-4">
-          <Switch checked={offshoreActivities} onCheckedChange={setOffshoreActivities} />
-          {offshoreActivities && (
-            <Input
-              type="text"
-              placeholder="If yes, please give details"
-              value={offshoreDetails}
-              onChange={(e) => setOffshoreDetails(e.target.value)}
-              className="w-full"
+        <RadioGroup value={offshoreActivities} onValueChange={setOffshoreActivities}>
+          <div className="flex items-center gap-x-4">
+            <RadioGroupItem
+              value="yes"
+              id="offshoreYes"
+              label="Yes"
+              className={`radio-custom-size ${offshoreActivities === "yes" ? "bg-gray-800 text-white" : ""}`}
             />
-          )}
-        </div>
+            <RadioGroupItem
+              value="no"
+              id="offshoreNo"
+              label="No"
+              className={`radio-custom-size ${offshoreActivities === "no" ? "bg-gray-800 text-white" : ""}`}
+            />
+          </div>
+        </RadioGroup>
+        {offshoreActivities === "yes" && (
+          <Input
+            type="text"
+            placeholder="If yes, please give details"
+            value={offshoreDetails}
+            onChange={(e) => setOffshoreDetails(e.target.value)}
+            className="w-full"
+          />
+        )}
       </div>
 
       {/* Oil and Gas Sector Activities */}
       <div className="flex flex-col gap-y-2">
         <label className="font-medium">Is any of your employees engaged in oil and gas sector activities?</label>
-        <div className="flex items-center gap-x-4">
-          <Switch checked={oilGasSector} onCheckedChange={setOilGasSector} />
-          {oilGasSector && (
-            <Input
-              type="text"
-              placeholder="If yes, please give details"
-              value={oilGasDetails}
-              onChange={(e) => setOilGasDetails(e.target.value)}
-              className="w-full"
+        <RadioGroup value={oilGasSector} onValueChange={setOilGasSector}>
+          <div className="flex items-center gap-x-4">
+            <RadioGroupItem
+              value="yes"
+              id="oilGasYes"
+              label="Yes"
+              className={`radio-custom-size ${oilGasSector === "yes" ? "bg-gray-800 text-white" : ""}`}
             />
-          )}
-        </div>
+            <RadioGroupItem
+              value="no"
+              id="oilGasNo"
+              label="No"
+              className={`radio-custom-size ${oilGasSector === "no" ? "bg-gray-800 text-white" : ""}`}
+            />
+          </div>
+        </RadioGroup>
+        {oilGasSector === "yes" && (
+          <Input
+            type="text"
+            placeholder="If yes, please give details"
+            value={oilGasDetails}
+            onChange={(e) => setOilGasDetails(e.target.value)}
+            className="w-full"
+          />
+        )}
       </div>
 
       {/* Claims in Past 3 Years */}
       <div className="flex flex-col gap-y-2">
         <label className="font-medium">Did you have any claims in the past 3 years?</label>
-        <div className="flex items-center gap-x-4">
-          <Switch checked={claimsInPast} onCheckedChange={setClaimsInPast} />
-          {claimsInPast && (
-            <Input
-              type="text"
-              placeholder="If yes, please give details"
-              value={claimsDetails}
-              onChange={(e) => setClaimsDetails(e.target.value)}
-              className="w-full"
+        <RadioGroup value={claimsInPast} onValueChange={setClaimsInPast}>
+          <div className="flex items-center gap-x-4">
+            <RadioGroupItem
+              value="yes"
+              id="claimsYes"
+              label="Yes"
+              className={`radio-custom-size ${claimsInPast === "yes" ? "bg-gray-800 text-white" : ""}`}
             />
-          )}
-        </div>
+            <RadioGroupItem
+              value="no"
+              id="claimsNo"
+              label="No"
+              className={`radio-custom-size ${claimsInPast === "no" ? "bg-gray-800 text-white" : ""}`}
+            />
+          </div>
+        </RadioGroup>
+        {claimsInPast === "yes" && (
+          <Input
+            type="text"
+            placeholder="If yes, please give details"
+            value={claimsDetails}
+            onChange={(e) => setClaimsDetails(e.target.value)}
+            className="w-full"
+          />
+        )}
       </div>
 
       {/* Previous Application Declined */}
       <div className="flex flex-col gap-y-2">
         <label className="font-medium">Has a previous application been declined?</label>
-        <div className="flex items-center gap-x-4">
-          <Switch checked={previousApplicationDeclined} onCheckedChange={setPreviousApplicationDeclined} />
-          {previousApplicationDeclined && (
-            <Input
-              type="text"
-              placeholder="If yes, please give details"
-              value={previousApplicationDetails}
-              onChange={(e) => setPreviousApplicationDetails(e.target.value)}
-              className="w-full"
+        <RadioGroup value={previousApplicationDeclined} onValueChange={setPreviousApplicationDeclined}>
+          <div className="flex items-center gap-x-4">
+            <RadioGroupItem
+              value="yes"
+              id="applicationDeclinedYes"
+              label="Yes"
+              className={`radio-custom-size ${previousApplicationDeclined === "yes" ? "bg-gray-800 text-white" : ""}`}
             />
-          )}
-        </div>
+            <RadioGroupItem
+              value="no"
+              id="applicationDeclinedNo"
+              label="No"
+              className={`radio-custom-size ${previousApplicationDeclined === "no" ? "bg-gray-800 text-white" : ""}`}
+            />
+          </div>
+        </RadioGroup>
+        {previousApplicationDeclined === "yes" && (
+          <Input
+            type="text"
+            placeholder="If yes, please give details"
+            value={previousApplicationDetails}
+            onChange={(e) => setPreviousApplicationDetails(e.target.value)}
+            className="w-full"
+          />
+        )}
       </div>
 
       {/* Next Button */}
