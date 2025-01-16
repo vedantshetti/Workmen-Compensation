@@ -186,13 +186,13 @@ const InsuredDetailsForm = () => {
           />
         </div>
 
-        {/* Policy Dates */}
+        {/* Policy Start Date */}
         <div className="flex flex-col gap-y-2">
           <label className="font-medium">Policy Start Date</label>
           <Popover open={isPopoverOpen} onOpenChange={setIsPopoverOpen}>
             <PopoverTrigger asChild>
               <Input
-                className="placeholder-gray-500 text-gray-500"
+                className="placeholder-gray-500 text-gray-500 text-left"
                 placeholder="Select policy start date"
                 value={
                   policyStartDate ? format(policyStartDate, "dd-MM-yyyy") : ""
@@ -212,13 +212,13 @@ const InsuredDetailsForm = () => {
           </Popover>
         </div>
 
+        {/* Policy End Date */}
         <div className="flex flex-col gap-y-2">
           <label className="font-medium">Policy End Date</label>
           <Input
-            className="placeholder-gray-500"
+            className="placeholder-gray-500 text-gray-500 text-left"
             value={format(policyEndDate, "yyyy-MM-dd")}
             readOnly
-            className="text-gray-500"
           />
         </div>
 
