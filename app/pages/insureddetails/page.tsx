@@ -11,6 +11,9 @@ import {
 import { Input } from "@/components/ui/input";
 import { Calendar } from "@/components/ui/calendar";
 import { format, addDays, addYears } from "date-fns";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 import {
   Popover,
   PopoverTrigger,
@@ -189,27 +192,20 @@ const InsuredDetailsForm = () => {
         {/* Policy Start Date */}
         <div className="flex flex-col gap-y-2">
           <label className="font-medium">Policy Start Date</label>
-          <Popover open={isPopoverOpen} onOpenChange={setIsPopoverOpen}>
-            <PopoverTrigger asChild>
+          <DatePicker
+            selected={policyStartDate}
+            onChange={handlePolicyStartChange}
+            minDate={addDays(new Date(), 1)}
+            showYearDropdown
+            showMonthDropdown
+            dateFormat="dd-MM-yyyy"
+            customInput={
               <Input
                 className="placeholder-gray-500 text-gray-500 text-left"
-                placeholder="Select policy start date"
-                value={
-                  policyStartDate ? format(policyStartDate, "dd-MM-yyyy") : ""
-                }
-                onClick={() => setIsPopoverOpen(true)} // Open Popover when clicked
                 readOnly
               />
-            </PopoverTrigger>
-            <PopoverContent>
-              <Calendar
-                mode="single"
-                selected={policyStartDate}
-                onSelect={handlePolicyStartChange}
-                disabled={(date) => date < addDays(new Date(), 1)}
-              />
-            </PopoverContent>
-          </Popover>
+            }
+          />
         </div>
 
         {/* Policy End Date */}
@@ -221,7 +217,6 @@ const InsuredDetailsForm = () => {
             readOnly
           />
         </div>
-
         {/* Number of Employees */}
         <div className="flex flex-col gap-y-2">
           <label className="font-medium">Number of Employees</label>
