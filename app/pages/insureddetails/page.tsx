@@ -37,7 +37,7 @@ const InsuredDetailsForm = () => {
   };
 
   const handleNextClick = () => {
-    router.push("/pages/liability"); // Navigate to the liability page
+    router.push("/pages/Liability"); // Navigate to the liability page
   };
 
   const handleNumEmployeesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
