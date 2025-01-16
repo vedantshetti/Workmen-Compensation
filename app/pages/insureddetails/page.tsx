@@ -140,7 +140,7 @@ const InsuredDetailsForm = () => {
           <label className="font-medium">Business Activity</label>
           <Input
             className="placeholder-gray-500"
-            placeholder="Enter business activity"
+            placeholder="Enter business activity as mentioned in trade license"
           />
         </div>
 
