@@ -26,6 +26,7 @@ const InsuredDetailsForm = () => {
     addYears(addDays(new Date(), 1), 1)
   );
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+  const [numEmployees, setNumEmployees] = useState(""); // State for employees
 
   const router = useRouter(); // Initialize the Next.js router
 
@@ -37,6 +38,15 @@ const InsuredDetailsForm = () => {
 
   const handleNextClick = () => {
     router.push("/pages/liability"); // Navigate to the liability page
+  };
+
+  const handleNumEmployeesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    if (/^\d*$/.test(value)) {
+      setNumEmployees(
+        value === "" ? "" : Math.max(Number(value), 1).toString()
+      );
+    }
   };
 
   return (
@@ -219,6 +229,8 @@ const InsuredDetailsForm = () => {
             className="placeholder-gray-500"
             type="number"
             placeholder="Enter number of employees"
+            value={numEmployees}
+            onChange={handleNumEmployeesChange}
           />
         </div>
 
