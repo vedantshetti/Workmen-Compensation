@@ -156,25 +156,6 @@ const LimitOfLiabilityForm = () => {
                 <SelectItem value="other-blue-collar">
                   Other - Blue Collar
                 </SelectItem>
-                {/* Add offshore categories */}
-                <SelectItem value="offshore-management">
-                  offshore-Management
-                </SelectItem>
-                <SelectItem value="offshore-administration">
-                  offshore-Administration
-                </SelectItem>
-                <SelectItem value="offshore-clerical-staff">
-                  offshore-Clerical Staff
-                </SelectItem>
-                <SelectItem value="offshore-engineers">
-                  offshore-Engineers
-                </SelectItem>
-                <SelectItem value="offshore-manual-labourers">
-                  offshore-Manual Labourers
-                </SelectItem>
-                <SelectItem value="offshore-drivers">
-                  offshore-Drivers
-                </SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -192,13 +173,6 @@ const LimitOfLiabilityForm = () => {
             </label>
             <Input type="number" placeholder="Enter estimated wages" />
           </div>
-
-          {/* Add/Del Button */}
-          <div className="lg:col-span-3 lg:flex lg:items-center lg:justify-end mt-4">
-            <button className="px-4 py-2 bg-blue-500 text-white rounded-md">
-              Add/Del
-            </button>
-          </div>
         </div>
       </div>
 
@@ -206,9 +180,9 @@ const LimitOfLiabilityForm = () => {
       <div className="mt-6 flex justify-end">
         <button
           onClick={handleNextClick}
-          className="flex items-center px-6 py-2 bg-black text-white rounded-full hover:bg-gray-800"
+          className="flex w-full lg:w-full px-6 py-2 bg-black text-white rounded-full hover:bg-gray-800 justify-center lg:text-center items-center"
         >
-          Next
+          <span className="lg:text-center">Next</span>
           <span className="ml-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
