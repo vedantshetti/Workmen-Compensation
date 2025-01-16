@@ -16,7 +16,7 @@ import {
   PopoverTrigger,
   PopoverContent,
 } from "@/components/ui/popover"; // Importing Popover
-import { useRouter } from "next/navigation"; // For navigation
+import { useRouter } from "next/navigation"; // For navigatio
 
 const InsuredDetailsForm = () => {
   const [policyStartDate, setPolicyStartDate] = useState(
@@ -97,11 +97,17 @@ const InsuredDetailsForm = () => {
         </div>
 
         {/* Business Sector */}
+        {/* Business Sector */}
         <div className="flex flex-col gap-y-2">
           <label className="font-medium">Business Sector</label>
           <Select>
             <SelectTrigger className="w-full text-gray-500">
-              <SelectValue placeholder="Select business sector" />
+              <div className="overflow-hidden">
+                <SelectValue
+                  placeholder="Select business sector"
+                  className="scrolling-text"
+                />
+              </div>
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="airport-airline">
@@ -119,7 +125,7 @@ const InsuredDetailsForm = () => {
               <SelectItem value="healthcare-social">
                 Healthcare and Social Work Activities
               </SelectItem>
-              <SelectItem value="media">
+              <SelectItem value="media" className="break-words">
                 Information and Communication - Newspaper, TV, Media etc
               </SelectItem>
               <SelectItem value="real-estate">
@@ -227,10 +233,13 @@ const InsuredDetailsForm = () => {
       </div>
 
       {/* Next Button */}
-      <div className="mt-6 flex justify-end">
+      {/* Next Button */}
+      {/* Next Button */}
+      {/* Next Button */}
+      <div className="mt-6 flex justify-center">
         <button
           onClick={handleNextClick}
-          className="flex items-center px-6 py-2 bg-black text-white rounded-full hover:bg-gray-800"
+          className="flex w-full lg:w-full px-6 py-2 bg-black text-white rounded-full hover:bg-gray-800 justify-center items-center"
         >
           Next
           <span className="ml-2">
