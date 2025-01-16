@@ -163,7 +163,17 @@ const LimitOfLiabilityForm = () => {
           {/* No of Employees */}
           <div className="flex flex-col gap-y-2">
             <label className="font-medium">No of Employees</label>
-            <Input type="number" placeholder="Enter number of employees" />
+            <Input
+              type="number"
+              min="1"
+              placeholder="Enter number of employees"
+              onInput={(e) => {
+                // Ensuring that the value cannot be less than 1
+                if (parseInt(e.target.value) < 1) {
+                  e.target.value = 1; // Set to 1 if user tries to input a value less than 1
+                }
+              }}
+            />
           </div>
 
           {/* Estimated Wages for the Period (in AED) */}
