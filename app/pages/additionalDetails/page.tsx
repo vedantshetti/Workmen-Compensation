@@ -32,18 +32,22 @@ const AdditionalDetailsForm = () => {
         <label className="font-medium">Is the Cover obtained for all Employees?</label>
         <RadioGroup value={coverForAllEmployees} onValueChange={setCoverForAllEmployees}>
           <div className="flex items-center gap-x-4">
-            <RadioGroupItem
-              value="yes"
-              id="coverYes"
-              label="Yes"
-              className={`radio-custom-size ${coverForAllEmployees === "yes" ? "bg-gray-800 text-white" : ""}`}
-            />
-            <RadioGroupItem
-              value="no"
-              id="coverNo"
-              label="No"
-              className={`radio-custom-size ${coverForAllEmployees === "no" ? "bg-gray-800 text-white" : ""}`}
-            />
+            <div className="flex items-center gap-x-2">
+              <RadioGroupItem
+                value="yes"
+                id="coverYes"
+                className={`radio-custom-size ${coverForAllEmployees === "yes" ? "bg-gray-800 text-white" : ""}`}
+              />
+              <span>Yes</span>
+            </div>
+            <div className="flex items-center gap-x-2">
+              <RadioGroupItem
+                value="no"
+                id="coverNo"
+                className={`radio-custom-size ${coverForAllEmployees === "no" ? "bg-gray-800 text-white" : ""}`}
+              />
+              <span>No</span>
+            </div>
           </div>
         </RadioGroup>
         {coverForAllEmployees === "no" && (
@@ -62,18 +66,22 @@ const AdditionalDetailsForm = () => {
         <label className="font-medium">Is any of the employees engaged in offshore activities?</label>
         <RadioGroup value={offshoreActivities} onValueChange={setOffshoreActivities}>
           <div className="flex items-center gap-x-4">
-            <RadioGroupItem
-              value="yes"
-              id="offshoreYes"
-              label="Yes"
-              className={`radio-custom-size ${offshoreActivities === "yes" ? "bg-gray-800 text-white" : ""}`}
-            />
-            <RadioGroupItem
-              value="no"
-              id="offshoreNo"
-              label="No"
-              className={`radio-custom-size ${offshoreActivities === "no" ? "bg-gray-800 text-white" : ""}`}
-            />
+            <div className="flex items-center gap-x-2">
+              <RadioGroupItem
+                value="yes"
+                id="offshoreYes"
+                className={`radio-custom-size ${offshoreActivities === "yes" ? "bg-gray-800 text-white" : ""}`}
+              />
+              <span>Yes</span>
+            </div>
+            <div className="flex items-center gap-x-2">
+              <RadioGroupItem
+                value="no"
+                id="offshoreNo"
+                className={`radio-custom-size ${offshoreActivities === "no" ? "bg-gray-800 text-white" : ""}`}
+              />
+              <span>No</span>
+            </div>
           </div>
         </RadioGroup>
         {offshoreActivities === "yes" && (
@@ -92,18 +100,22 @@ const AdditionalDetailsForm = () => {
         <label className="font-medium">Is any of your employees engaged in oil and gas sector activities?</label>
         <RadioGroup value={oilGasSector} onValueChange={setOilGasSector}>
           <div className="flex items-center gap-x-4">
-            <RadioGroupItem
-              value="yes"
-              id="oilGasYes"
-              label="Yes"
-              className={`radio-custom-size ${oilGasSector === "yes" ? "bg-gray-800 text-white" : ""}`}
-            />
-            <RadioGroupItem
-              value="no"
-              id="oilGasNo"
-              label="No"
-              className={`radio-custom-size ${oilGasSector === "no" ? "bg-gray-800 text-white" : ""}`}
-            />
+            <div className="flex items-center gap-x-2">
+              <RadioGroupItem
+                value="yes"
+                id="oilGasYes"
+                className={`radio-custom-size ${oilGasSector === "yes" ? "bg-gray-800 text-white" : ""}`}
+              />
+              <span>Yes</span>
+            </div>
+            <div className="flex items-center gap-x-2">
+              <RadioGroupItem
+                value="no"
+                id="oilGasNo"
+                className={`radio-custom-size ${oilGasSector === "no" ? "bg-gray-800 text-white" : ""}`}
+              />
+              <span>No</span>
+            </div>
           </div>
         </RadioGroup>
         {oilGasSector === "yes" && (
@@ -122,18 +134,22 @@ const AdditionalDetailsForm = () => {
         <label className="font-medium">Did you have any claims in the past 3 years?</label>
         <RadioGroup value={claimsInPast} onValueChange={setClaimsInPast}>
           <div className="flex items-center gap-x-4">
-            <RadioGroupItem
-              value="yes"
-              id="claimsYes"
-              label="Yes"
-              className={`radio-custom-size ${claimsInPast === "yes" ? "bg-gray-800 text-white" : ""}`}
-            />
-            <RadioGroupItem
-              value="no"
-              id="claimsNo"
-              label="No"
-              className={`radio-custom-size ${claimsInPast === "no" ? "bg-gray-800 text-white" : ""}`}
-            />
+            <div className="flex items-center gap-x-2">
+              <RadioGroupItem
+                value="yes"
+                id="claimsYes"
+                className={`radio-custom-size ${claimsInPast === "yes" ? "bg-gray-800 text-white" : ""}`}
+              />
+              <span>Yes</span>
+            </div>
+            <div className="flex items-center gap-x-2">
+              <RadioGroupItem
+                value="no"
+                id="claimsNo"
+                className={`radio-custom-size ${claimsInPast === "no" ? "bg-gray-800 text-white" : ""}`}
+              />
+              <span>No</span>
+            </div>
           </div>
         </RadioGroup>
         {claimsInPast === "yes" && (
@@ -152,18 +168,22 @@ const AdditionalDetailsForm = () => {
         <label className="font-medium">Has a previous application been declined?</label>
         <RadioGroup value={previousApplicationDeclined} onValueChange={setPreviousApplicationDeclined}>
           <div className="flex items-center gap-x-4">
-            <RadioGroupItem
-              value="yes"
-              id="applicationDeclinedYes"
-              label="Yes"
-              className={`radio-custom-size ${previousApplicationDeclined === "yes" ? "bg-gray-800 text-white" : ""}`}
-            />
-            <RadioGroupItem
-              value="no"
-              id="applicationDeclinedNo"
-              label="No"
-              className={`radio-custom-size ${previousApplicationDeclined === "no" ? "bg-gray-800 text-white" : ""}`}
-            />
+            <div className="flex items-center gap-x-2">
+              <RadioGroupItem
+                value="yes"
+                id="applicationDeclinedYes"
+                className={`radio-custom-size ${previousApplicationDeclined === "yes" ? "bg-gray-800 text-white" : ""}`}
+              />
+              <span>Yes</span>
+            </div>
+            <div className="flex items-center gap-x-2">
+              <RadioGroupItem
+                value="no"
+                id="applicationDeclinedNo"
+                className={`radio-custom-size ${previousApplicationDeclined === "no" ? "bg-gray-800 text-white" : ""}`}
+              />
+              <span>No</span>
+            </div>
           </div>
         </RadioGroup>
         {previousApplicationDeclined === "yes" && (
@@ -178,10 +198,10 @@ const AdditionalDetailsForm = () => {
       </div>
 
       {/* Next Button */}
-      <div className="mt-6 flex justify-end">
+      <div className="mt-6 flex justify-end w-full">
         <button
           onClick={handleNextClick}
-          className="flex items-center px-6 py-2 bg-black text-white rounded-full hover:bg-gray-800"
+          className="flex items-center justify-center px-6 py-2 bg-black text-white rounded-full hover:bg-gray-800 w-full md:w-auto"
         >
           Next
           <span className="ml-2">
