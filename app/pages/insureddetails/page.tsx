@@ -216,7 +216,7 @@ const InsuredDetailsForm = () => {
         <div className="flex flex-col gap-y-2">
           <label className="font-medium">Policy End Date</label>
           <Input
-            className="placeholder-gray-500 text-gray-500 text-left"
+            className="placeholder-gray-500 text-gray-500 text-left pointer-events-none"
             value={format(policyEndDate, "yyyy-MM-dd")}
             readOnly
           />
