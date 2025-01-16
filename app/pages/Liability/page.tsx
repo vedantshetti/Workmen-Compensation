@@ -181,7 +181,17 @@ const LimitOfLiabilityForm = () => {
             <label className="font-medium">
               Estimated Wages for the Period (in AED)
             </label>
-            <Input type="number" placeholder="Enter estimated wages" />
+            <Input
+              type="number"
+              min="1"
+              placeholder="Enter estimated wages"
+              onInput={(e) => {
+                // Ensuring that the value cannot be less than 1
+                if (parseInt(e.target.value) < 1) {
+                  e.target.value = 1; // Set to 1 if user tries to input a value less than 1
+                }
+              }}
+            />
           </div>
         </div>
       </div>
